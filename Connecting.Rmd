@@ -1,0 +1,36 @@
+---
+title: "Set Up for the Lab"
+output: html_document
+---
+
+To use the tutorials and other material we will use a combination of [R](https://cran.r-project.org/), [RStudio](http://www.RStudio.com), and [Github](http://www.github.com).
+
+R, RStudio and Github. 
+
+* To start open up (or download) [RStudio](http://www.RStudio.com)
+* Next, go to File->New Project
+<center>
+<div style="width:500px; height=400px">
+![](figures/RStudioGit1.PNG)
+</div>
+</center>
+* Select Version Control -> Git
+<center>
+<div style="width:500px; height=400px">
+![](figures/RStudioGit2.PNG)
+</div>
+</center>
+* Type in <GITHERE> and use *ergm_lab* for the project name. I recommend saving the project on your Desktop.
+<center>
+<div style="width:500px; height=400px">
+![](figures/RStudioGit3.PNG)
+</div>
+</center>
+* The result should look something like this!
+<center>
+<div style="width:500px; height=400px">
+![](figures/RStudioGit4.PNG)
+</div>
+</center>
+
+

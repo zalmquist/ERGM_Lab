@@ -1,0 +1,10 @@
+base
+rmarkdown
+ggplot2
+ggmap
+statnet.common
+network
+ergm
+knitr
+sna
+coda

@@ -11,7 +11,7 @@
 
 
 
-<title>ERGM Lab: Networks and Health Workshop 2017</title>
+<title>ERGM R Lab</title>
 
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -160,35 +160,69 @@ $(".main-container").removeClass("main-container").removeClass("container-fluid"
 
 
 
-<h1 class="title toc-ignore">ERGM Lab: Networks and Health Workshop 2017</h1>
+<h1 class="title toc-ignore">ERGM R Lab</h1>
 
 </div>
 
 
-<div class="wrapper">
-<div class="left">
-<div class="figure">
-<img src="images/diff_fest3.png" />
-
-</div>
-</div>
-<div class="left">
-<b>News</b></br> <a class="twitter-timeline" data-width="250" data-height="200" data-chrome="nofooter, noheader,transparent,noborders" href="https://twitter.com/zack_almquist"></a>
-<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
-</div>
-</div>
-<div class="wrapper">
-<p> <br/></p>
-</div>
-<div id="r-for-ergm-analysis" class="section level2">
-<h2>R for ERGM Analysis</h2>
-<p>This lab is written for the <a href="https://dnac.ssri.duke.edu/social-networks-health-scholars-training-program.php">Networks and Health Workshop</a> at <a href="https://www.duke.edu/">Duke University</a>. The material for this lab is based on the <a href="statnet.csde.washington.edu">statnet</a> team workshops given at various sunbelts and other conferences. The focus of this lab is on statistical inference of networks based on the ERGM framework, and will include details on model fitting, model analysis, simulation and goodness of fit diagnostics. Altogether the lab will have the following structure:</p>
+<div id="step-1" class="section level2">
+<h2>Step 1</h2>
 <ul>
-<li>Install R</li>
-<li>Install RStudio</li>
-<li>Use RStudio and Github to download all workshop materials</li>
-<li>Follow along workshop html, RMarkdown and R files</li>
-<li>Do some exercises!</li>
+<li>Install <a href="https://cran.r-project.org/">R</a>, see <a href="Rinstall.html">R Install</a></li>
+<li>Install <a href="https://cran.r-project.org/">R-Studio</a>, see <a href="Rinstall.html">R Install</a></li>
+<li>Open R-Studio – See <a href="Connecting.html">Set up</a>
+<ul>
+<li>If you want to produce a pdf from th RMARKDOWN you will need to install <a href="https://www.latex-project.org/get/">LaTex</a></li>
+<li><a href="http://www.tug.org/mactex/">OSX</a> or <a href="https://miktex.org/">Windows</a></li>
+</ul></li>
+</ul>
+</div>
+<div id="step-2" class="section level2">
+<h2>Step 2</h2>
+<ul>
+<li>Once you have connected R-Studio to github and downloaded the workshop:
+<ul>
+<li>Open up the <a href="ERGM_Lab_html.html">lab</a>
+<ul>
+<li>You can also open up the lab Rmd file, <a href="">ERGM_lab.Rmd</a> in files you downloaded from github</li>
+</ul></li>
+<li>Read through the lab and run the R code.
+<ul>
+<li>Compile the whole lab into a .pdf if you installed latex</li>
+</ul></li>
+<li>Do the exercises at the end of the lab (data provided through git). ## Notes</li>
+<li>This lab requires you to install packages</li>
+</ul>
+<pre class="r"><code>install.packages(&quot;sna&quot;)
+install.packages(&quot;network&quot;)
+install.packages(&quot;ergm&quot;)
+install.packages(&quot;coda&quot;)
+install.packages(&quot;knitr&quot;)</code></pre></li>
+<li><p>Loading packages in R</p>
+<pre class="r"><code>library(ergm)
+data(florentine) 
+flomarriage </code></pre>
+<pre><code>##  Network attributes:
+##   vertices = 16 
+##   directed = FALSE 
+##   hyper = FALSE 
+##   loops = FALSE 
+##   multiple = FALSE 
+##   bipartite = FALSE 
+##   total edges= 20 
+##     missing edges= 0 
+##     non-missing edges= 20 
+## 
+##  Vertex attribute names: 
+##     priorates totalties vertex.names wealth 
+## 
+## No edge attributes</code></pre>
+<pre class="r"><code>par(mfrow=c(1,2)) 
+plot(flomarriage, main=&quot;Florentine Marriage&quot;, cex.main=0.8) 
+summary(flomarriage~edges) </code></pre>
+<pre><code>## edges 
+##    20</code></pre>
+<p><img src="workshop_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p></li>
 </ul>
 </div>
 

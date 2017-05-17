@@ -1,0 +1,44 @@
+---
+title: "Set Up for the Lab"
+#author: "Zack W Almquist (University of Minnesota)"
+output: html_document
+---
+
+In this lab we will be introducing you to the *ergm* package in the *statnet*-suite of software. To use the tutorials and other material we will use a combination of [R](https://cran.r-project.org/), [RStudio](http://www.RStudio.com), and [Github](http://www.github.com).
+
+## First Step Dowonload R
+
+
+* To start download [R](https://cran.r-project.org/)
+* You will need to select your operating system version:
+<center>
+<div style="width:500px; height=400px">
+![](figures/CRAN.png)
+</div>
+</center>
+<center>
+<div style="width:500px; height=400px">
+![](figures/CRAN_OSX.png)
+</div>
+</center>
+* I am using OS X, so the example will follow for Mac, but Windows is similar
+<center>
+<div style="width:500px; height=400px">
+![](figures/CRAN_Windows.png)
+</div>
+</center>
+* Choose the latest version 3.3.X
+<center>
+<div style="width:500px; height=400px">
+![](figures/R3_3_x.png)
+</div>
+</center>
+* Now we will download a populat IDE (Integrated Development Enviroment) [RStudio](https://www.rstudio.com/)
+<center>
+<div style="width:500px; height=400px">
+![](figures/Rstudio.png)
+</div>
+</center>
+
+
+

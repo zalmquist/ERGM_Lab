@@ -1,0 +1,44 @@
+---
+title: "ERGM R Lab"
+output:
+  html_document:
+    toc: false
+---
+
+## Step 1
+
+* Install [R](https://cran.r-project.org/), see [R Install](Rinstall.html)
+* Install [R-Studio](https://cran.r-project.org/), see [R Install](Rinstall.html)
+* Open R-Studio -- See [Set up](Connecting.html)
+    * If you want to produce a pdf from th RMARKDOWN you will need to install [LaTex](https://www.latex-project.org/get/)
+    * [OSX](http://www.tug.org/mactex/) or [Windows](https://miktex.org/)
+
+## Step 2
+
+* Once you have connected R-Studio to github and downloaded the workshop:
+    * Open up the [lab](ERGM_Lab_html.html) 
+        * You can also open up the lab Rmd file, [ERGM_lab.Rmd]() in files you downloaded from github
+    * Read through the lab and run the R code.
+        * Compile the whole lab into a .pdf if you installed latex
+    * Do the exercises at the end of the lab (data provided through git).
+## Notes
+    * This lab requires you to install packages
+    ```{r,eval=FALSE}
+    install.packages("sna")
+    install.packages("network")
+    install.packages("ergm")
+    install.packages("coda")
+    install.packages("knitr")
+    ```
+
+* Loading packages in R
+
+    ```{r}
+library(ergm)
+data(florentine) 
+flomarriage 
+par(mfrow=c(1,2)) 
+plot(flomarriage, main="Florentine Marriage", cex.main=0.8) 
+summary(flomarriage~edges) 
+```
+
