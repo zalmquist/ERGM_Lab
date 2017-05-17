@@ -96,8 +96,9 @@ Exponential-family random graph models (ERGMs) represent a general class of mode
 
 The general form for an ERGM can be written as:
 
-$$\Pr(Y=y) = \frac{\exp(\theta^T g(y,X))}{\kappa(y,\mathcal{Y},X)}$$
-where Y is the random variable for the state of the network (with realization y), g(y)g(y) is a vector of model statistics for network $y$, $\theta$ is the vector of coefficients for those statistics, and $\kappa$ represents the quantity in the numerator summed over all possible networks (typically constrained to be all networks with the same node set as y).
+$\Pr(Y=y) = \frac{\exp(\theta^T g(y,X))}{\kappa(y,\mathcal{Y},X)}$
+
+where $Y$ is the random variable for the state of the network (with realization y), $g(y)$ is a vector of model statistics for network $y$, $\theta$ is the vector of coefficients for those statistics, and $\kappa$ represents the quantity in the numerator summed over all possible networks (typically constrained to be all networks with the same node set as $y$).
 
 This can be re-expressed in terms of the conditional log-odds of a single tie between two actors:
 
