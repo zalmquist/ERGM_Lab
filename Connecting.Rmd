@@ -20,7 +20,7 @@ R, RStudio and Github.
 ![](figures/RStudioGit2.PNG)
 </div>
 </center>
-* Type in <GITHERE> and use *ergm_lab* for the project name. I recommend saving the project on your Desktop.
+* Type in <https://github.com/zalmquist/ERGM_Lab.git> and use *ergm_lab* for the project name. I recommend saving the project on your Desktop.
 <center>
 <div style="width:500px; height=400px">
 ![](figures/RStudioGit3.PNG)
