@@ -1,0 +1,35 @@
+---
+title: "ergm-terms"
+author: "statnet team"
+date: "May 16, 2017"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+require(knitr)
+library(ergm)
+knitr::opts_chunk$set(echo = TRUE)
+
+help_console <- function(topic, format=c("text", "html", "latex", "Rd"),
+                         lines=NULL, before=NULL, after=NULL) {  
+  format=match.arg(format)
+  if (!is.character(topic)) topic <- deparse(substitute(topic))
+  helpfile = utils:::.getHelpFile(help(topic))
+
+  hs <- capture.output(switch(format, 
+                              text=tools:::Rd2txt(helpfile),
+                              html=tools:::Rd2HTML(helpfile),
+                              latex=tools:::Rd2latex(helpfile),
+                              Rd=tools:::prepare_Rd(helpfile)
+                              )
+                      )
+  if(!is.null(lines)) hs <- hs[lines]
+  hs <- c(before, hs, after)
+  cat(hs, sep="\n")
+  invisible(hs)
+}
+```
+```{r,results='asis',echo=FALSE}
+help_console('ergm-terms',"html",lines=54:1570)
+```
+
