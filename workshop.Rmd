@@ -19,8 +19,9 @@ output:
     * Open up the [lab](ERGM_Lab_html.html) 
         * You can also open up the lab Rmd file, [ERGM_lab.Rmd]() in files you downloaded from github
     * Read through the lab and run the R code.
-        * Compile the whole lab into a .pdf if you installed latex
-    * Do the exercises at the end of the lab (data provided through git).
+    * Provided on github is the tutorial, Rscript and lab exercises and necessary data.
+        * Compile the whole lab into a .pdf if you installed latex.
+    * Do the exercises in the [Lab Exercises](ERGM_Lab_Exercises_html.html) (data provided through git).
 ## Notes
     * This lab requires you to install packages
     ```{r,eval=FALSE}

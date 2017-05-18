@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="pandoc" />
+
+
+<meta name="author" content="Zack W Almquist (University of Minnesota)" />
+
+<meta name="date" content="2017-05-15" />
+
+<title>ERGM LAB: Exercises</title>
+
+<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/cosmo.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/highlightjs-1.1/textmate.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-1.1/highlight.js"></script>
+
+<link rel="icon" type="image/png" href="images/favicon.png" />
+
+<script type="text/javascript" src="js/rmarkdown.js"></script>
+<script type="text/javascript" src="https://platform.twitter.com/widgets.js"></script>
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+  pre:not([class]) {
+    background-color: white;
+  }
+</style>
+<script type="text/javascript">
+if (window.hljs && document.readyState && document.readyState === "complete") {
+   window.setTimeout(function() {
+      hljs.initHighlighting();
+   }, 0);
+}
+</script>
+
+
+
+<style type="text/css">
+h1 {
+  font-size: 34px;
+}
+h1.title {
+  font-size: 38px;
+}
+h2 {
+  font-size: 30px;
+}
+h3 {
+  font-size: 24px;
+}
+h4 {
+  font-size: 18px;
+}
+h5 {
+  font-size: 16px;
+}
+h6 {
+  font-size: 12px;
+}
+.table th:not([align]) {
+  text-align: left;
+}
+</style>
+
+<link rel="stylesheet" href="css/rmarkdown.css" type="text/css" />
+
+</head>
+
+<body>
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+img {
+  max-width:100%;
+  height: auto;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+</style>
+
+
+
+<div class="container-fluid main-container">
+
+<!-- tabsets -->
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+</script>
+
+<!-- code folding -->
+
+
+
+
+<script>
+$(document).ready(function ()  {
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_').toLowerCase();
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = false;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
+
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+  padding-left: 25px;
+  text-indent: 0;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+.tocify-subheader {
+  display: inline;
+}
+.tocify-subheader .tocify-item {
+  font-size: 0.95em;
+}
+
+</style>
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row-fluid">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
+
+
+
+
+<div id="rStudioHeader" class="alwaysShrunk">
+  <div class="innards bandContent">
+    <div>
+      <a class="productName" href="index.html">ERGM R Lab</a>
+    </div>
+
+    <div id="menu">
+      <div id="menuToggler"></div>
+      <div id="menuItems">
+        <a class="menuItem" href="index.html">Home</a>
+        <a class="menuItem" href="Rinstall.html">R Installation</a>
+        <a class="menuItem" href="Connecting.html">Setup</a>
+        <a class="menuItem" href="workshop.html">Overview</a>   
+        <a class="menuItem" href="ERGM_Lab_html.html">Lab</a>   
+        <a class="menuItem" href="ERGM_Lab_Exercises_html.html">Lab Exercises</a>   
+        <a class="menuItem" href="Almquist_ERGM.pdf">Lecture Slides</a>   
+<!-- 
+        <a class="menuItem gitHub" href="https://github.com/rstudio/rmarkdown"></a>
+        <a class="menuItem gitHubText" href="https://github.com/rstudio/rmarkdown">Source on GitHub</a>
+ --> 
+      </div>
+    </div>
+  </div>
+</div>
+
+<style type="text/css">
+#TOC {
+  margin-left: 35px;
+  margin-top: 90px;
+}
+</style>
+
+<script type="text/javascript">
+$(".main-container").removeClass("main-container").removeClass("container-fluid").addClass("footerPushDown");
+</script>
+
+
+<div id="pageContent" class="standardPadding">
+  <div class="articleBandContent">
+
+<div class="fluid-row" id="header">
+
+
+
+<h1 class="title toc-ignore">ERGM LAB: Exercises</h1>
+<h4 class="author"><em>Zack W Almquist (University of Minnesota)</em></h4>
+<h4 class="date"><em>May 15, 2017</em></h4>
+
+</div>
+
+
+<pre class="r"><code>library(ergm)
+library(sna)
+library(coda)</code></pre>
+<div id="rural-arizona-risk-networks" class="section level1">
+<h1>Rural Arizona risk Networks</h1>
+<div id="the-data" class="section level2">
+<h2>The Data</h2>
+<p>The data comes was aggregated by Martina Morris (University of Washington) and Richard Rothenberg (Emory University) and put online at ICPSR. The original data can be found <a href="http://www.icpsr.umich.edu/icpsrweb/NAHDAP/studies/22140">here</a>. In this exercise we are goint to investigate four networks derived from the <em>Rural Arizona risk networks</em> in Flagstaff, AZ. These networks were collected from May 1996 to Jan 1998 and originally had 95 respondents interviewed 5 times each. All participants are over 18 years old. This network was generated from random walk sampling strategy. <strong>Warning</strong> These networks are obviously from network sample and not <em>true</em> complete networks, but we are going to ignore that for this exercise and will treat them as complete.</p>
+<ul>
+<li>Name generator
+<ul>
+<li>Sex, needle, other (illicit) drug contact, social contact in last 6 months</li>
+<li>Sampling strategy
+<ul>
+<li>Six seeds chosen at random within same geographic area (Flagstaff) from persons presumed to be at elevated risk for HIV acquisition (through sex and/or drug behaviors)</li>
+</ul></li>
+</ul></li>
+</ul>
+</div>
+<div id="networks" class="section level2">
+<h2>Networks</h2>
+<p>Here, I have constructed 4 networks with attributes: race, ethnicity, sex, and age.</p>
+<p>Load the data:</p>
+<pre class="r"><code>load(&quot;data/flagstaff_rural.rda&quot;)</code></pre>
+<div id="needle-network" class="section level3">
+<h3>Needle Network</h3>
+<pre class="r"><code>flag_needle_net</code></pre>
+<pre><code> Network attributes:
+  vertices = 42 
+  directed = FALSE 
+  hyper = FALSE 
+  loops = FALSE 
+  multiple = FALSE 
+  bipartite = FALSE 
+  total edges= 87 
+    missing edges= 0 
+    non-missing edges= 87 
+
+ Vertex attribute names: 
+    age ethn id race sex vertex.names 
+
+No edge attributes</code></pre>
+<pre class="r"><code>plot(flag_needle_net, vertex.col = &quot;race&quot;, main = &quot;Needle&quot;)</code></pre>
+<p><img src="ERGM_Lab_Exercises_html_files/figure-html/unnamed-chunk-3-1.png" width="672" style="display: block; margin: auto;" /></p>
+</div>
+<div id="sexual-contact-network" class="section level3">
+<h3>Sexual Contact Network</h3>
+<pre class="r"><code>flag_sex_net</code></pre>
+<pre><code> Network attributes:
+  vertices = 167 
+  directed = FALSE 
+  hyper = FALSE 
+  loops = FALSE 
+  multiple = FALSE 
+  bipartite = FALSE 
+  total edges= 282 
+    missing edges= 0 
+    non-missing edges= 282 
+
+ Vertex attribute names: 
+    age ethn id race sex vertex.names 
+
+No edge attributes</code></pre>
+<pre class="r"><code>plot(flag_sex_net, vertex.col = &quot;race&quot;, main = &quot;Sex&quot;)</code></pre>
+<p><img src="ERGM_Lab_Exercises_html_files/figure-html/unnamed-chunk-4-1.png" width="672" style="display: block; margin: auto;" /></p>
+</div>
+<div id="social-contact-network" class="section level3">
+<h3>Social Contact Network</h3>
+<pre class="r"><code>flag_social_net</code></pre>
+<pre><code> Network attributes:
+  vertices = 523 
+  directed = FALSE 
+  hyper = FALSE 
+  loops = FALSE 
+  multiple = FALSE 
+  bipartite = FALSE 
+  total edges= 2713 
+    missing edges= 0 
+    non-missing edges= 2713 
+
+ Vertex attribute names: 
+    age ethn id race sex vertex.names 
+
+ Edge attribute names not shown </code></pre>
+<pre class="r"><code>plot(flag_social_net, vertex.col = &quot;race&quot;, main = &quot;Social&quot;)</code></pre>
+<p><img src="ERGM_Lab_Exercises_html_files/figure-html/unnamed-chunk-5-1.png" width="672" style="display: block; margin: auto;" /></p>
+</div>
+<div id="drug-contact-network" class="section level3">
+<h3>Drug Contact Network</h3>
+<pre class="r"><code>flag_drug_net</code></pre>
+<pre><code> Network attributes:
+  vertices = 352 
+  directed = FALSE 
+  hyper = FALSE 
+  loops = FALSE 
+  multiple = FALSE 
+  bipartite = FALSE 
+  total edges= 1626 
+    missing edges= 0 
+    non-missing edges= 1626 
+
+ Vertex attribute names: 
+    age ethn id race sex vertex.names 
+
+ Edge attribute names not shown </code></pre>
+<pre class="r"><code>plot(flag_drug_net, vertex.col = &quot;race&quot;, main = &quot;Drug&quot;)</code></pre>
+<p><img src="ERGM_Lab_Exercises_html_files/figure-html/unnamed-chunk-6-1.png" width="672" style="display: block; margin: auto;" /></p>
+</div>
+</div>
+</div>
+<div id="exercise" class="section level1">
+<h1>Exercise</h1>
+<p>For each network explore the basic properties of the network (e.g., mixing matrix, density, etc.) and then attempt to develop a “good” ERG model for each network. After you have the best ERG model you can construct, use the tutorial to try to interpret the predicted probabilities and odds ratio of a given conditional tie. Further, attempt to explain what these results would mean substantively.</p>
+</div>
+
+  </div> <!-- articleBandContent -->
+</div> <!-- pageContent -->
+
+<div id="rStudioFooter" class="band full">
+<div class="bandContent">
+  <div id="copyright">© Zack W. Almquist adapted from <a href="https://github.com/rstudio/rmarkdown">Rstudio</a></div>
+  <div id="logos">
+    <a href="https://twitter.com/zack_almquist" class="footerLogo twitter"></a>
+    <a href="https://github.com/zalmquist" class="footerLogo gitHub"></a>
+    <a href="https:www.linkedin.com/in/zalmquist" class="footerLogo linkedIn"></a>
+    <a href="https://www.researchgate.net/profile/Zack_Almquist" class="footerLogo researchgate"></a>
+    <a href="http://orcid.org/0000-0002-1967-123X" class="footerLogo orcid"></a>
+    <a href="https://scholar.google.com/citations?user=mbb7bD4AAAAJ&hl=en" class="footerLogo googlescholar"></a>
+     <a href="http://www.ncbi.nlm.nih.gov/myncbi/browse/collection/42724578/?sort=date&amp;direction=descending" class="footerLogo pmc"></a>
+  </div>
+</div>
+</div>
+
+<!-- bizible -->
+<script type="text/javascript" src="//cdn.bizible.com/scripts/bizible.js" async=""></script>
+
+
+</div>
+</div>
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+
+</body>
+</html>
