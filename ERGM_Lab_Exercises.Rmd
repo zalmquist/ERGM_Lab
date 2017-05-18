@@ -31,7 +31,7 @@ library(coda)
 # Rural Arizona risk Networks
 
 ## The Data
-The data comes was aggregated by Martina Morris (University of Washington) and Richard Rothenberg (Emory University) and put online at ICPSR. The original data can be found [here](http://www.icpsr.umich.edu/icpsrweb/NAHDAP/studies/22140). In this exercise we are goint to investigate four networks derived from the *Rural Arizona risk networks* in Flagstaff, AZ. These networks were collected from May 1996 to Jan 1998 and originally had 95 respondents interviewed 5 times each. All participants are over 18 years old. This network was generated from random walk sampling strategy. **Warning** These networks are obviously from network sample and not *true* complete networks, but we are going to ignore that for this exercise and will treat them as complete. 
+The data was aggregated by Martina Morris (University of Washington) and Richard Rothenberg (Emory University) and put online at ICPSR. The original data can be found [here](http://www.icpsr.umich.edu/icpsrweb/NAHDAP/studies/22140). In this exercise we are goint to investigate four networks derived from the *Rural Arizona risk networks* in Flagstaff, AZ. These networks were collected from May 1996 to Jan 1998 and originally had 95 respondents interviewed 5 times each. All participants are over 18 years old. This network was generated from random walk sampling strategy. **Warning** These networks are obviously from network sample and not *true* complete networks, but we are going to ignore that for this exercise and will treat them as complete. 
 
 * Name generator
     * Sex, needle, other (illicit) drug contact, social contact in last 6 months
