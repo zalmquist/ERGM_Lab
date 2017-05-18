@@ -1,12 +1,12 @@
 ---
-title: "Set Up for the Lab"
+title: "Install R, RStudio and Github"
 #author: "Zack W Almquist (University of Minnesota)"
 output: html_document
 ---
 
 In this lab we will be introducing you to the *ergm* package in the *statnet*-suite of software. To use the tutorials and other material we will use a combination of [R](https://cran.r-project.org/), [RStudio](http://www.RStudio.com), and [Github](http://www.github.com).
 
-## First Step Dowonload R
+## First Step Download R
 
 
 * To start download [R](https://cran.r-project.org/)
